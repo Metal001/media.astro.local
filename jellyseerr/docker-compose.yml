@@ -1,0 +1,22 @@
+services:
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=Europe/Paris
+    ports:
+      - 5055:5055
+    volumes:
+      - jellyseerr_config:/app/config
+      - exports-media:/nfs
+    restart: unless-stopped
+
+volumes:
+  jellyseerr_config:
+  exports-media:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=192.168.10.248,nolock,soft,rw
+      device: ":/export/media"
