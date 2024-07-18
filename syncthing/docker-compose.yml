@@ -1,0 +1,26 @@
+services:
+  syncthing:
+    image: lscr.io/linuxserver/syncthing:latest
+    container_name: syncthing
+    hostname: syncthing
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - syncthing_config:/config
+      - exports-media:/nfs
+    ports:
+      - 8384:8384
+      - 22000:22000/tcp
+      - 22000:22000/udp
+      - 21027:21027/udp
+    restart: unless-stopped
+volumes:
+  exports-media:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=192.168.10.248,nolock,soft,rw
+      device: ":/export/media"
+  syncthing_config:      
