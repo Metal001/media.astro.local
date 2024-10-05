@@ -1,8 +1,8 @@
-version: '3.8'
+---
 
 services:
   prowlarr:
-    image: linuxserver/prowlarr
+    image: linuxserver/prowlarr:latest
     container_name: prowlarr
     environment:
       - PUID=1000
@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
 
   sonarr:
-    image: linuxserver/sonarr
+    image: linuxserver/sonarr:latest
     container_name: sonarr
     environment:
       - PUID=1000
@@ -31,7 +31,7 @@ services:
     restart: unless-stopped
 
   lidarr:
-    image: linuxserver/lidarr
+    image: linuxserver/lidarr:latest
     container_name: lidarr
     environment:
       - PUID=1000
@@ -45,7 +45,7 @@ services:
     restart: unless-stopped
 
   qbittorrent:
-    image: linuxserver/qbittorrent
+    image: linuxserver/qbittorrent:latest
     container_name: qbittorrent
     environment:
       - PUID=1000
@@ -61,7 +61,7 @@ services:
     restart: unless-stopped
 
   jellyfin:
-    image: linuxserver/jellyfin
+    image: linuxserver/jellyfin:latest
     container_name: jellyfin
     environment:
       - PUID=1000
@@ -77,7 +77,7 @@ services:
     restart: unless-stopped
 
   radarr:
-    image: linuxserver/radarr
+    image: linuxserver/radarr:latest
     container_name: radarr
     environment:
       - PUID=1000
